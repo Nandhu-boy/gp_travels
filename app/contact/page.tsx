@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { createInquiry } from '@/lib/firestore';
-import { PackageCategory } from '@/types';
+import { PackageCategory, BookingInquiry } from '@/types';
 import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 
 // Inline SVGs for social icons not in this lucide-react version
@@ -47,12 +47,13 @@ export default function ContactPage() {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        packageId: undefined,
-        packageName: formData.packageInterest,
+        packageName: formData.packageInterest || '',
         travelDate: formData.travelDate,
         groupSize: formData.groupSize,
         message: formData.message,
-      });
+        status: 'new',
+        createdAt: new Date(),
+      } as Omit<BookingInquiry, 'id'>);
       setSubmitted(true);
     } catch (error) {
       console.error('Error submitting inquiry:', error);

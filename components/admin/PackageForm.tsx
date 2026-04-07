@@ -57,7 +57,7 @@ export default function PackageForm({ initialData, isEdit = false }: PackageForm
       if (isEdit && initialData?.id) {
         await updatePackage(initialData.id, data);
       } else {
-        await createPackage(data as Omit<TravelPackage, 'id' | 'createdAt' | 'updatedAt'>); // firestore adds timestamps
+        await createPackage(data as any); // firestore adds timestamps
       }
       router.push('/admin/packages');
     } catch (error) {

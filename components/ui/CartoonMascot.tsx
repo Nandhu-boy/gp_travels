@@ -35,7 +35,7 @@ export default function CartoonMascot({ mood = 'wave', size = 90, className = ''
       {/* Body — cute globe */}
       <circle cx="50" cy="50" r="34" fill="#4FC3F7" />
       {/* Land masses — cartoon style */}
-      <ellipse cx="38" cy="40" rx="14" ry="10" fill="#66BB6A" rx="2" />
+      <ellipse cx="38" cy="40" rx="14" ry="10" fill="#66BB6A" />
       <ellipse cx="62" cy="55" rx="12" ry="15" fill="#66BB6A" />
       <ellipse cx="45" cy="65" rx="8" ry="6" fill="#81C784" />
       <circle cx="30" cy="55" r="5" fill="#81C784" />
