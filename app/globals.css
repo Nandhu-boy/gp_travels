@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-sky:         #87CEEB;
+  --color-sky-light:   #B8E4F9;
+  --color-grass:       #4CAF50;
+  --color-grass-dark:  #2E7D32;
+  --color-grass-light: #81C784;
+  --color-earth:       #8D6E63;
+  --color-earth-light: #BCAAA4;
+  --color-sun:         #FFD54F;
+  --color-sun-dark:    #FFA726;
+  --color-cloud:       #FFFFFF;
+  --color-leaf:        #66BB6A;
+  --color-water:       #4FC3F7;
+  --color-berry:       #EF5350;
+  --color-wood:        #5D4037;
+
+  --font-display: "Playfair Display", serif;
+  --font-body:    "Nunito", sans-serif;
+  --font-script:  "Dancing Script", cursive;
+
+  --animate-float:    float 6s ease-in-out infinite;
+  --animate-fade-in:  fadeIn 0.8s ease-out forwards;
+  --animate-bounce-in: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  --animate-wiggle:   wiggle 1s ease-in-out infinite;
+  --animate-drift:    drift 20s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-15px); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes bounceIn {
+    0%   { transform: scale(0.3); opacity: 0; }
+    50%  { transform: scale(1.05); }
+    70%  { transform: scale(0.95); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50%      { transform: rotate(2deg); }
+  }
+  @keyframes drift {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100vw); }
+  }
+}
+
+:root {
+  --sky:         #87CEEB;
+  --sky-light:   #B8E4F9;
+  --sky-deep:    #5BA3C9;
+  --grass:       #4CAF50;
+  --grass-dark:  #2E7D32;
+  --grass-light: #81C784;
+  --earth:       #8D6E63;
+  --earth-light: #D7CCC8;
+  --sun:         #FFD54F;
+  --sun-dark:    #FFA726;
+  --cloud:       #FFFFFF;
+  --leaf:        #66BB6A;
+  --water:       #4FC3F7;
+  --berry:       #EF5350;
+  --wood:        #5D4037;
+  --cream:       #F1F8E9;
+  --dark:        #33691E;
+  --primary:     #4CAF50;
+  --primary-light: #81C784;
+  --primary-dark:  #2E7D32;
+  --forest:      #1B5E20;
+}
+
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg, var(--sky-light) 0%, var(--cream) 30%, var(--cream) 100%);
+  color: var(--wood);
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* ─── Gradient Text ─────────────────────────── */
+.gradient-text, .gold-text {
+  background: linear-gradient(135deg, var(--sun), var(--sun-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Cartoon Button ────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--grass), var(--grass-light));
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 0 var(--grass-dark), 0 6px 20px rgba(76,175,80,0.3);
+  border: 3px solid rgba(255,255,255,0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 0 var(--grass-dark), 0 10px 30px rgba(76,175,80,0.4);
+}
+.btn-primary:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 0 var(--grass-dark);
+}
+
+/* ─── Card Float / Sticker ──────────────────── */
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.4s ease;
+  border-radius: 24px;
+}
+.card-hover:hover {
+  transform: translateY(-10px) rotate(-1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 3px rgba(76,175,80,0.2);
+}
+
+/* ─── Section Spacing ───────────────────────── */
+.section-pad { padding: 4rem 0; }
+@media (min-width: 768px) { .section-pad { padding: 5rem 0; } }
+.duration-1500 { transition-duration: 1500ms; }
+
+/* ─── Nature Pattern ────────────────────────── */
+.nature-pattern {
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(129,199,132,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(79,195,247,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,213,79,0.05) 0%, transparent 50%);
+}
+
+/* ─── Cloud shapes ──────────────────────────── */
+.cloud-divider {
+  position: relative;
+}
+.cloud-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23F1F8E9' d='M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ─── Blob container ────────────────────────── */
+.blob-shape {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* ─── Scrollbar — cute green ────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--grass-light), var(--grass));
+  border-radius: 99px;
+  border: 2px solid var(--cream);
+}
+
+/* ─── Focus ─────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ─── Bouncy hover for interactive elements ─── */
+.bounce-hover {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.bounce-hover:hover {
+  transform: scale(1.08);
+}
+
+/* ─── Floating cloud animation ──────────────── */
+.floating-cloud {
+  animation: drift 25s linear infinite;
+  opacity: 0.4;
+}
+.floating-cloud:nth-child(2) {
+  animation-duration: 35s;
+  animation-delay: -10s;
+  opacity: 0.3;
+}
+.floating-cloud:nth-child(3) {
+  animation-duration: 45s;
+  animation-delay: -20s;
+  opacity: 0.2;
+}
+
+/* ─── Mascot & nature animations ────────────── */
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+.animate-bounce-in {
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(2deg); }
+}
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.05); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes drift {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100vw); }
+}
